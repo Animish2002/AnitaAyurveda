@@ -5,6 +5,7 @@ import AboutSection from "./AboutUs";
 import ReviewsSection from "./GoogleReviews";
 import Footer from "./Footer";
 import AppointmentPage from "./AppointmentPage";
+import TreatmentsSection from "./TreatmentsSection";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <TreatmentsSection />
       <ReviewsSection />
       <AppointmentPage />
       <Footer />
