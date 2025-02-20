@@ -7,8 +7,8 @@ import {
   MapPin,
   ChevronRight,
   Instagram,
-  Facebook,
-  Twitter,
+  // Facebook,
+  // Twitter,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
@@ -106,12 +106,12 @@ const Footer = () => {
               >
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="hover:text-emerald-400 transition-colors">
+              {/* <a href="#" className="hover:text-emerald-400 transition-colors">
                 <Facebook className="h-6 w-6" />
               </a>
               <a href="#" className="hover:text-emerald-400 transition-colors">
                 <Twitter className="h-6 w-6" />
-              </a>
+              </a> */}
             </div>
             <div className="mt-6">
               <Button className="bg-emerald-600 hover:bg-emerald-700 w-full">
