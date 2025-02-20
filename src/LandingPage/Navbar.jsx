@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,11 +8,7 @@ import {
   NavigationMenuTrigger,
 } from "../components/ui/navigation-menu";
 import { Button } from "../components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "../components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet";
 import { Menu } from "lucide-react";
 import AnitaAyurvedaLogo from "../assets/AnitaAyurvedaLogo.png";
 
@@ -20,14 +16,17 @@ const Navbar = () => {
   return (
     <div className="border-b bg-white">
       <div className="flex h-20 items-center px-4 max-w-7xl mx-auto">
-        {/* Logo */}
         <div className="flex items-center mr-8">
-          <div className=" w-20 rounded-full flex items-center justify-center" >
-           <img src={AnitaAyurvedaLogo} alt="Anita Ayurveda Logo"/>
+          <div className=" w-20 rounded-full flex items-center justify-center">
+            <img src={AnitaAyurvedaLogo} alt="Anita Ayurveda Logo" />
           </div>
           <div className="ml-3">
-            <h1 className="text-lg font-serif text-stone-800">Anita Ayurveda</h1>
-            <p className="text-sm text-emerald-600 font-medium">Holistic Healing Center</p>
+            <h1 className="text-lg font-serif text-stone-800">
+              Anita Ayurveda
+            </h1>
+            <p className="text-sm text-emerald-600 font-medium">
+              Holistic Healing Center
+            </p>
           </div>
         </div>
 
@@ -36,7 +35,7 @@ const Navbar = () => {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink 
+                <NavigationMenuLink
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   href="/"
                 >
@@ -44,7 +43,7 @@ const Navbar = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink 
+                <NavigationMenuLink
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   href="/contact"
                 >
@@ -52,26 +51,15 @@ const Navbar = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-stone-600 hover:text-emerald-600">Treatments</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="w-[250px] p-2">
-                    <NavigationMenuLink 
-                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-stone-50 hover:text-emerald-600"
-                      href="/panchakarma"
-                    >
-                      Panchakarma
-                    </NavigationMenuLink>
-                    <NavigationMenuLink 
-                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-stone-50 hover:text-emerald-600"
-                      href="/consultation"
-                    >
-                      Consultation
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
+                <NavigationMenuLink
+                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                  href="/contact"
+                >
+                  Treatments
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink 
+                <NavigationMenuLink
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   href="/contact"
                 >

@@ -47,12 +47,8 @@ const Footer = () => {
                   <span>+91 8459582371</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail className="h-5 w-5 text-emerald-400" />
-                  <span>care@ayurvedawellness.com</span>
-                </li>
-                <li className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-emerald-400" />
-                  <span>Mon-Sat: 9:00 AM - 7:00 PM</span>
+                  <span>Mon-Sat: 10:30 AM - 8:30 PM</span>
                 </li>
               </ul>
             </div>
