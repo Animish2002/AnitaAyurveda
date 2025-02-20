@@ -3,6 +3,7 @@ import { Star, Clock, Phone, Mail, MapPin, ChevronRight, Instagram, Facebook, Tw
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
+import AnitaAyurvedaLogo from "../assets/AnitaAyurvedaLogo.png";
 
 const Footer = () => {
     return (
@@ -11,8 +12,8 @@ const Footer = () => {
           <div className="grid md:grid-cols-4 gap-12">
             <div>
               <div className="flex items-center mb-6">
-                <div className="h-10 w-10 bg-emerald-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xl font-serif">A</span>
+                <div className="h-16 w-16  rounded-full flex items-center justify-center">
+                <img src={AnitaAyurvedaLogo} alt="Anita Ayurveda Logo"/>
                 </div>
                 <div className="ml-3">
                   <h3 className="text-white font-serif">Ayurveda Wellness</h3>
@@ -38,12 +39,12 @@ const Footer = () => {
               <h4 className="text-white font-medium mb-4">Contact Info</h4>
               <ul className="space-y-4">
                 <li className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-emerald-400" />
-                  <span>123 Healing Street, Wellness City</span>
+                  <MapPin className="h-14 w-14 text-emerald-400" />
+                  <span>Shop no 1, ground floor, Moze College Road, Balewadi, Pune, Maharashtra 411045</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="h-5 w-5 text-emerald-400" />
-                  <span>+1 234 567 8900</span>
+                  <span>+91 8459582371</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="h-5 w-5 text-emerald-400" />
