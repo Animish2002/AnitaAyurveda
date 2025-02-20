@@ -14,8 +14,8 @@ const Home = () => {
       <HeroSection />
       <AboutSection />
       <TreatmentsSection />
-      <ReviewsSection />
       <AppointmentPage />
+      <ReviewsSection />
       <Footer />
     </>
   );
