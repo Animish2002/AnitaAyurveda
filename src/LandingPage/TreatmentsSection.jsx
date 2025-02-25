@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../components/ui/button";
 import {
   Card,
@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
   CardFooter,
+  CardDescription,
 } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import {
@@ -25,6 +26,11 @@ import {
   Clock4,
   ScrollText,
   Droplets,
+  ChevronDown,
+  CheckCircle,
+  User,
+  ArrowRight,
+  Info,
 } from "lucide-react";
 import Vamana from "../assets/Vamana.jpg";
 import Virechana from "../assets/Virechana.jpeg";
@@ -36,6 +42,9 @@ import Udvartana from "../assets/Udvartana.jpg";
 import Basti from "../assets/Basti.jpg";
 
 const TreatmentsSection = () => {
+  const [selectedDosha, setSelectedDosha] = useState("all");
+  const [expandedCard, setExpandedCard] = useState(null);
+
   const treatments = {
     panchakarma: [
       {
@@ -53,6 +62,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "Kapha",
         image: `${Vamana}`,
+        process: [
+          "Initial consultation to determine suitability",
+          "5-7 days of preparatory treatments",
+          "Administration of herbal emetics with medicinal liquids",
+          "Controlled therapeutic vomiting process",
+          "Rest and rejuvenation period",
+        ],
       },
       {
         name: "Virechana",
@@ -68,6 +84,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "Pitta",
         image: `${Virechana}`,
+        process: [
+          "Preliminary assessment of Pitta imbalance",
+          "Preparatory treatments with medicated oils",
+          "Herbal laxative administration",
+          "Controlled therapeutic purgation",
+          "Post-treatment dietary regimen",
+        ],
       },
       {
         name: "Basti",
@@ -84,6 +107,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "Vata",
         image: `${Basti}`,
+        process: [
+          "Assessment of Vata imbalance patterns",
+          "Selection of appropriate Basti type (Sneha or Niruha)",
+          "Preparation of herbal decoction or medicated oils",
+          "Gentle administration through rectal route",
+          "Post-treatment care and dietary guidelines",
+        ],
       },
       {
         name: "Nasya",
@@ -100,6 +130,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "All doshas",
         image: `${Nasya}`,
+        process: [
+          "Facial massage with herbal oils",
+          "Steam application to open nasal passages",
+          "Administration of herbal drops through nasal pathway",
+          "Gentle massage to enhance absorption",
+          "Relaxation and integration period",
+        ],
       },
       {
         name: "Raktamokshan",
@@ -116,6 +153,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "Pitta",
         image: `${Raktamokshan}`,
+        process: [
+          "Thorough assessment of blood toxicity",
+          "Selection of appropriate method (needles, leeches, or suction)",
+          "Preparation of the treatment area",
+          "Precise and controlled blood removal",
+          "Application of healing herbs and aftercare",
+        ],
       },
     ],
     massage: [
@@ -132,6 +176,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "All doshas",
         image: `${Abhyanga}`,
+        process: [
+          "Selection of dosha-specific oils",
+          "Warming of herbal oils to therapeutic temperature",
+          "Rhythmic full-body massage techniques",
+          "Special attention to marma (vital) points",
+          "Gentle scalp and foot massage to complete",
+        ],
       },
       {
         name: "Shirodhara",
@@ -146,6 +197,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "Vata and Pitta",
         image: `${Shirodhara}`,
+        process: [
+          "Brief head and shoulder massage to prepare",
+          "Selection of appropriate herbal oil",
+          "Continuous warm oil flow on the 'third eye' area",
+          "Maintenance of rhythmic, meditative flow",
+          "Gentle scalp massage to conclude treatment",
+        ],
       },
       {
         name: "Udvartana",
@@ -160,6 +218,13 @@ const TreatmentsSection = () => {
         ],
         dosha: "Kapha",
         image: `${Udvartana}`,
+        process: [
+          "Application of warming herbal paste",
+          "Vigorous massage with herbal powders",
+          "Special focus on areas with fat accumulation",
+          "Stimulation of lymphatic drainage pathways",
+          "Warm shower to remove herbal residue",
+        ],
       },
     ],
   };
@@ -213,14 +278,44 @@ const TreatmentsSection = () => {
     ],
   };
 
+  const doshaFilters = [
+    { name: "All", value: "all" },
+    { name: "Vata", value: "Vata" },
+    { name: "Pitta", value: "Pitta" },
+    { name: "Kapha", value: "Kapha" },
+  ];
+
+  const filterTreatmentsByDosha = (items) => {
+    if (selectedDosha === "all") return items;
+    return items.filter(
+      (treatment) =>
+        treatment.dosha === selectedDosha ||
+        treatment.dosha.includes(selectedDosha) ||
+        treatment.dosha === "All doshas"
+    );
+  };
+
+  const toggleCardExpansion = (treatmentName) => {
+    if (expandedCard === treatmentName) {
+      setExpandedCard(null);
+    } else {
+      setExpandedCard(treatmentName);
+    }
+  };
+
   return (
-    <div className="bg-gradient-to-b from-stone-50 to-white py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-stone-50 to-white py-24 relative overflow-hidden">
+      {/* Decorative elements */}
+     
+      <div className="absolute bottom-0 right-0 w-1/3 h-96 bg-emerald-50 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute top-40 left-10 w-20 h-20 bg-amber-100 rounded-full blur-xl opacity-60"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <Badge className="bg-emerald-100 text-emerald-700 mb-4 px-4 py-1">
+          <Badge className="bg-emerald-100 text-emerald-700 mb-4 px-4 py-1 rounded-full">
             Our Specialties
           </Badge>
-          <h2 className="text-4xl font-serif text-stone-800 mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6">
             Traditional Ayurvedic Treatments
           </h2>
           <p className="text-stone-600 max-w-2xl mx-auto text-lg">
@@ -229,171 +324,350 @@ const TreatmentsSection = () => {
           </p>
         </div>
 
-        {/* Panchakarma Introduction Card */}
-        <Card className="mb-16 border-stone-200 bg-gradient-to-r from-emerald-50 to-stone-50">
-          <CardContent className="p-8">
-            <div className="flex flex-col md:flex-row gap-8">
-              <div className="md:w-1/2">
-                <h3 className="text-3xl font-serif text-stone-800 mb-4">
-                  {panchakarmaInfo.title}
-                </h3>
-                <p className="text-stone-600 mb-6 leading-relaxed">
-                  {panchakarmaInfo.description}
-                </p>
-                <div className="grid grid-cols-2 gap-4 mt-6">
-                  {panchakarmaInfo.benefits
-                    .slice(0, 4)
-                    .map((benefit, index) => (
-                      <div key={index} className="flex items-start gap-2">
-                        <Leaf className="text-emerald-500 h-5 w-5 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-stone-700">
-                          {benefit}
-                        </span>
-                      </div>
-                    ))}
-                </div>
-              </div>
-
-              <div className="md:w-1/2">
-                <div className="rounded-lg overflow-hidden border border-stone-200 bg-white p-6 h-full">
-                  <h4 className="text-xl font-serif text-stone-800 mb-4">
-                    Three Stages of Panchakarma
-                  </h4>
-
-                  <div className="space-y-4">
-                    {panchakarmaInfo.stages.map((stage, index) => (
-                      <div
-                        key={index}
-                        className="border-l-2 border-emerald-500 pl-4"
-                      >
-                        <h5 className="font-medium text-stone-800">
-                          {stage.name}
-                        </h5>
-                        <p className="text-sm text-stone-600 mt-1">
-                          {stage.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+        {/* Hero Section with parallax effect */}
+        <div className="mb-24 relative rounded-2xl overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/80 to-emerald-700/60 z-10"></div>
+          <div className="relative h-96 overflow-hidden">
+            <img
+              src="/api/placeholder/1200/600"
+              alt="Ayurvedic Treatment"
+              className="w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-3000"
+            />
+          </div>
+          <div className="absolute inset-0 z-20 flex items-center justify-center p-8">
+            <div className="max-w-3xl text-center">
+              <h3 className="text-3xl md:text-4xl font-serif text-white mb-4 drop-shadow-md">
+                {panchakarmaInfo.title}
+              </h3>
+              <p className="text-white/90 text-lg mb-8 leading-relaxed drop-shadow">
+                {panchakarmaInfo.description}
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button className="bg-white text-emerald-800 hover:bg-emerald-50">
+                  Discover Panchakarma
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/20 backdrop-blur-sm"
+                >
+                  Book a Consultation
+                </Button>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
-        <Tabs defaultValue="panchakarma" className="mb-12">
-          <TabsList className="w-full max-w-7xl mx-auto justify-center mb-12 bg-stone-100 p-1 space-x-2">
-            <TabsTrigger
-              value="panchakarma"
-              className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white px-8 py-3"
-            >
-              Panchakarma
-            </TabsTrigger>
-            <TabsTrigger
-              value="massage"
-              className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white px-8 py-3"
-            >
-              Massage Therapy
-            </TabsTrigger>
-          </TabsList>
+        {/* Three stages card with visual timeline */}
+        <div className="mb-24">
+          <div className="text-center mb-12">
+            <Badge className="bg-amber-100 text-amber-700 mb-3 px-3 py-1 rounded-full">
+              The Process
+            </Badge>
+            <h3 className="text-3xl font-serif text-stone-800 mb-4">
+              Three Stages of Panchakarma
+            </h3>
+            <p className="text-stone-600 max-w-2xl mx-auto">
+              A comprehensive approach to detoxification and rejuvenation
+            </p>
+          </div>
 
-          {Object.entries(treatments).map(([category, items]) => (
-            <TabsContent key={category} value={category}>
-              <div className="grid md:grid-cols-3 gap-8">
-                {items.map((treatment) => (
-                  <Card
-                    key={treatment.name}
-                    className="hover:shadow-xl transition-all duration-300 border-stone-200"
-                  >
-                    <CardContent className="p-6">
-                      <div className="relative mb-6">
-                        <img
-                          src={treatment.image}
-                          alt={treatment.name}
-                          className="rounded-lg w-full object-cover mb-4"
-                        />
-                        <Badge className="absolute top-4 right-4 bg-white/90 text-emerald-700 backdrop-blur-sm">
-                          {treatment.duration}
-                        </Badge>
-                        <Badge className="absolute top-4 left-4 bg-emerald-600/90 text-white backdrop-blur-sm">
-                          {treatment.dosha}
-                        </Badge>
-                      </div>
+          <div className="grid md:grid-cols-3 gap-6 relative">
+            {/* Timeline connector */}
+            <div className="hidden md:block absolute top-24 left-1/6 right-1/6 h-1 bg-gradient-to-r from-emerald-200 via-emerald-400 to-emerald-200 z-0"></div>
 
-                      <div className="space-y-4">
-                        <div>
-                          <h3 className="text-2xl font-serif text-stone-800 mb-2">
-                            {treatment.name}
-                          </h3>
-                          <p className="text-stone-600 text-sm leading-relaxed">
-                            {treatment.description}
-                          </p>
-                        </div>
-
-                        <div className="space-y-2">
-                          <p className="text-sm font-medium text-stone-800">
-                            Key Benefits:
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {treatment.benefits.map((benefit) => (
-                              <Badge
-                                key={benefit}
-                                variant="outline"
-                                className="bg-stone-50 border-stone-200 text-stone-600"
-                              >
-                                {benefit}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
-
-        {/* Benefits Section */}
-        <div className="mt-16 bg-stone-50 rounded-xl p-8 border border-stone-200">
-          <h3 className="text-2xl font-serif text-stone-800 mb-6 text-center">
-            Benefits of Panchakarma
-          </h3>
-          <div className="grid md:grid-cols-4 gap-4">
-            {panchakarmaInfo.benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 p-3 bg-white rounded-lg border border-stone-100"
-              >
-                <div className="bg-emerald-100 rounded-full p-2 text-emerald-600">
-                  {index % 4 === 0 && <Leaf className="h-5 w-5" />}
-                  {index % 4 === 1 && <Heart className="h-5 w-5" />}
-                  {index % 4 === 2 && <Droplets className="h-5 w-5" />}
-                  {index % 4 === 3 && <Star className="h-5 w-5" />}
+            {panchakarmaInfo.stages.map((stage, index) => (
+              <div key={index} className="relative z-10">
+                <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all p-6 border border-stone-100 h-full">
+                  <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-4 mx-auto">
+                    <span className="text-emerald-700 font-bold text-lg">
+                      {index + 1}
+                    </span>
+                  </div>
+                  <h4 className="text-xl font-serif text-stone-800 mb-3 text-center">
+                    {stage.name}
+                  </h4>
+                  <p className="text-sm text-stone-600 mb-4">
+                    {stage.description}
+                  </p>
+                  <ul className="space-y-2">
+                    {stage.steps.map((step, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-2 text-sm text-stone-700"
+                      >
+                        <CheckCircle className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <span className="text-sm text-stone-700">{benefit}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-stone-600 mb-6">
-            Not sure which treatment is right for you?
-          </p>
-          <Button
-            variant="outline"
-            className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 mr-4"
-          >
-            Schedule a Consultation
-          </Button>
-          <Button className="bg-emerald-600 text-white hover:bg-emerald-700">
-            Learn More About Panchakarma
-          </Button>
+        {/* Treatment tabs with dosha filter */}
+        <div className="mb-24">
+          <Tabs defaultValue="panchakarma" className="mb-12">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+              <TabsList className="bg-stone-100 p-1 space-x-2 rounded-full mb-4 md:mb-0">
+                <TabsTrigger
+                  value="panchakarma"
+                  className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white px-8 py-3 rounded-full"
+                >
+                  Panchakarma
+                </TabsTrigger>
+                <TabsTrigger
+                  value="massage"
+                  className="data-[state=active]:bg-emerald-600 data-[state=active]:text-white px-8 py-3 rounded-full"
+                >
+                  Massage Therapy
+                </TabsTrigger>
+              </TabsList>
+
+              <div className="flex items-center space-x-2">
+                <span className="text-sm text-stone-600">Filter by Dosha:</span>
+                <div className="flex space-x-1">
+                  {doshaFilters.map((filter) => (
+                    <button
+                      key={filter.value}
+                      onClick={() => setSelectedDosha(filter.value)}
+                      className={`px-3 py-1 text-sm rounded-full transition-all ${
+                        selectedDosha === filter.value
+                          ? "bg-emerald-100 text-emerald-800 font-medium"
+                          : "bg-stone-50 text-stone-600 hover:bg-stone-100"
+                      }`}
+                    >
+                      {filter.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {Object.entries(treatments).map(([category, items]) => (
+              <TabsContent key={category} value={category}>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {filterTreatmentsByDosha(items).map((treatment) => (
+                    <Card
+                      key={treatment.name}
+                      className={`hover:shadow-xl transition-all duration-300 border-stone-200 ${
+                        expandedCard === treatment.name ? "md:col-span-3" : ""
+                      }`}
+                    >
+                      <div
+                        className={`${
+                          expandedCard === treatment.name
+                            ? "md:grid md:grid-cols-2 md:gap-6"
+                            : ""
+                        }`}
+                      >
+                        <CardContent className="p-6">
+                          <div className="relative mb-6 overflow-hidden rounded-lg">
+                            <img
+                              src={treatment.image}
+                              alt={treatment.name}
+                              className="w-full h-64 object-cover transition-transform hover:scale-105 duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                            <Badge className="absolute top-4 right-4 bg-white/90 text-emerald-700 backdrop-blur-sm">
+                              {treatment.duration}
+                            </Badge>
+                            <Badge className="absolute top-4 left-4 bg-emerald-600/90 text-white backdrop-blur-sm">
+                              {treatment.dosha}
+                            </Badge>
+                            <h3 className="absolute bottom-4 left-4 text-2xl font-serif text-white drop-shadow-md">
+                              {treatment.name}
+                            </h3>
+                          </div>
+
+                          <div className="space-y-4">
+                            <p className="text-stone-600 text-sm leading-relaxed">
+                              {treatment.description}
+                            </p>
+
+                            <div className="space-y-2">
+                              <p className="text-sm font-medium text-stone-800 flex items-center gap-1">
+                                <Leaf className="h-4 w-4 text-emerald-500" />
+                                Key Benefits:
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                {treatment.benefits.map((benefit) => (
+                                  <Badge
+                                    key={benefit}
+                                    variant="outline"
+                                    className="bg-stone-50 border-stone-200 text-stone-600"
+                                  >
+                                    {benefit}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                          <Button
+                            variant="ghost"
+                            onClick={() => toggleCardExpansion(treatment.name)}
+                            className="w-full mt-4 text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50"
+                          >
+                            {expandedCard === treatment.name
+                              ? "Show Less"
+                              : "Learn More"}
+                            <ChevronDown
+                              className={`ml-2 h-4 w-4 transition-transform ${
+                                expandedCard === treatment.name
+                                  ? "rotate-180"
+                                  : ""
+                              }`}
+                            />
+                          </Button>
+                        </CardContent>
+
+                        {expandedCard === treatment.name && (
+                          <CardContent className="p-6 bg-stone-50/50">
+                            <h4 className="text-lg font-serif text-stone-800 mb-4 flex items-center gap-2">
+                              <Info className="h-5 w-5 text-emerald-600" />
+                              Treatment Process
+                            </h4>
+                            <ol className="space-y-3 mb-6">
+                              {treatment.process.map((step, index) => (
+                                <li key={index} className="flex gap-3">
+                                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-sm text-emerald-700 font-medium">
+                                    {index + 1}
+                                  </div>
+                                  <div className="text-stone-700">{step}</div>
+                                </li>
+                              ))}
+                            </ol>
+
+                            <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-100">
+                              <h5 className="text-amber-800 font-medium mb-2 flex items-center gap-2">
+                                <User className="h-4 w-4" />
+                                Who is this treatment for?
+                              </h5>
+                              <p className="text-sm text-amber-700">
+                                This treatment is especially beneficial for
+                                those with {treatment.dosha} imbalances,
+                                experiencing{" "}
+                                {treatment.benefits.slice(0, 3).join(", ")}.
+                                Always consult with our Ayurvedic specialists to
+                                determine if this treatment is right for you.
+                              </p>
+                            </div>
+
+                            <Button className="mt-6 bg-emerald-600 text-white hover:bg-emerald-700">
+                              Book This Treatment
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </CardContent>
+                        )}
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
+
+        {/* Benefits Section with animated counting */}
+        <div className="mb-24 relative">
+          <div className="absolute inset-0 bg-emerald-900/5 rounded-3xl"></div>
+          <div className="relative px-8 py-16 bg-gradient-to-br from-emerald-50 to-transparent rounded-3xl border border-emerald-100">
+            <h3 className="text-3xl font-serif text-stone-800 mb-8 text-center">
+              Benefits of Panchakarma
+            </h3>
+
+            <div className="grid md:grid-cols-4 gap-6">
+              {panchakarmaInfo.benefits.map((benefit, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-stone-100 flex flex-col items-center text-center group hover:-translate-y-1 duration-300"
+                >
+                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center mb-4 group-hover:bg-emerald-200 transition-colors">
+                    {index % 4 === 0 && (
+                      <Leaf className="h-5 w-5 text-emerald-600" />
+                    )}
+                    {index % 4 === 1 && (
+                      <Heart className="h-5 w-5 text-emerald-600" />
+                    )}
+                    {index % 4 === 2 && (
+                      <Droplets className="h-5 w-5 text-emerald-600" />
+                    )}
+                    {index % 4 === 3 && (
+                      <Star className="h-5 w-5 text-emerald-600" />
+                    )}
+                  </div>
+                  <span className="text-stone-800 font-medium">{benefit}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Statistics */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-emerald-700 mb-1">
+                  5000+
+                </div>
+                <div className="text-sm text-stone-600">Years of tradition</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-emerald-700 mb-1">
+                  98%
+                </div>
+                <div className="text-sm text-stone-600">
+                  Client satisfaction
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-emerald-700 mb-1">
+                  30+
+                </div>
+                <div className="text-sm text-stone-600">
+                  Specialized treatments
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-emerald-700 mb-1">
+                  15+
+                </div>
+                <div className="text-sm text-stone-600">
+                  Expert practitioners
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    
+
+        {/* CTA */}
+        <div className="mt-16 text-center bg-gradient-to-r from-emerald-700 to-emerald-900 rounded-2xl p-12 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/api/placeholder/1000/600')] opacity-10 mix-blend-overlay"></div>
+          <div className="relative z-10">
+            <h3 className="text-3xl font-serif mb-4">
+              Begin Your Healing Journey
+            </h3>
+            <p className="text-emerald-100 max-w-2xl mx-auto mb-8">
+              Not sure which treatment is right for you? Our Ayurvedic experts
+              can guide you to the perfect therapy for your unique constitution
+              and needs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button className="bg-white text-emerald-800 hover:bg-emerald-50">
+                Schedule a Consultation
+              </Button>
+              <Button
+                variant="outline"
+                className="border-white text-white hover:bg-white/20"
+              >
+                Learn More About Panchakarma
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
