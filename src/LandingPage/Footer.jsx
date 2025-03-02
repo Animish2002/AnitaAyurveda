@@ -125,7 +125,7 @@ const Footer = () => {
 
         <div className="border-t border-stone-800 mt-12 pt-8 text-center text-sm">
           <p>
-            &copy; {new Date().getFullYear()}Anita Ayurveda. All rights
+            &copy; {new Date().getFullYear()}&nbsp;Anita Ayurveda. All rights
             reserved.
           </p>
         </div>
