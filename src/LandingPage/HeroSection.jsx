@@ -1,5 +1,15 @@
-import React from 'react';
-import { Star, Clock, Phone, Mail, MapPin, ChevronRight, Instagram, Facebook, Twitter } from 'lucide-react';
+import React from "react";
+import {
+  Star,
+  Clock,
+  Phone,
+  Mail,
+  MapPin,
+  ChevronRight,
+  Instagram,
+  Facebook,
+  Twitter,
+} from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
@@ -15,22 +25,27 @@ const HeroSection = () => {
               Experience Natural Healing Through Ancient Wisdom
             </h1>
             <p className="text-lg text-stone-600 mb-8">
-              Discover the power of Ayurvedic healing at our state-of-the-art wellness center. 
-              Our experienced practitioners combine traditional methods with modern care.
+              Discover the power of Ayurvedic healing at our state-of-the-art
+              wellness center. Our experienced practitioners combine traditional
+              methods with modern care.
             </p>
             <div className="flex gap-4">
               <Button className="bg-emerald-600 hover:bg-emerald-700">
                 Book Consultation
               </Button>
-              <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
+              <Button
+                variant="outline"
+                className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+              >
                 Learn More
               </Button>
             </div>
           </div>
           <div className="relative">
             <div className="aspect-square rounded-full bg-emerald-100 p-8">
-              <img 
-                src="/api/placeholder/600/600"
+              <img
+                //https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933269/ProfilePhoto_yevrpe.jpg
+                src=""
                 alt="Ayurvedic Treatment"
                 className="rounded-full object-cover"
               />

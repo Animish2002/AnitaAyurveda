@@ -10,7 +10,6 @@ import {
 import { Button } from "../components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet";
 import { Menu } from "lucide-react";
-import AnitaAyurvedaLogo from "../assets/AnitaAyurvedaLogo.png";
 
 const Navbar = () => {
   return (
@@ -18,7 +17,10 @@ const Navbar = () => {
       <div className="flex h-20 items-center px-4 max-w-7xl mx-auto">
         <div className="flex items-center mr-8">
           <div className=" w-20 rounded-full flex items-center justify-center">
-            <img src={AnitaAyurvedaLogo} alt="Anita Ayurveda Logo" />
+            <img
+              src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933329/AnitaAyurvedaLogo_ggkap2.png"
+              alt="Anita Ayurveda Logo"
+            />
           </div>
           <div className="ml-3">
             <h1 className="text-lg font-serif text-stone-800">

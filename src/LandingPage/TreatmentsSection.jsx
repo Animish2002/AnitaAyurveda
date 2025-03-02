@@ -32,14 +32,6 @@ import {
   ArrowRight,
   Info,
 } from "lucide-react";
-import Vamana from "../assets/Vamana.jpg";
-import Virechana from "../assets/Virechana.jpeg";
-import Nasya from "../assets/Nasya.png";
-import Raktamokshan from "../assets/Raktamokshan.jpg";
-import Abhyanga from "../assets/Abhyanga.jpg";
-import Shirodhara from "../assets/Shirodhara.png";
-import Udvartana from "../assets/Udvartana.jpg";
-import Basti from "../assets/Basti.jpg";
 
 const TreatmentsSection = () => {
   const [selectedDosha, setSelectedDosha] = useState("all");
@@ -61,7 +53,7 @@ const TreatmentsSection = () => {
           "Eczema",
         ],
         dosha: "Kapha",
-        image: `${Vamana}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933327/Vamana_uud82u.jpg`,
         process: [
           "Initial consultation to determine suitability",
           "5-7 days of preparatory treatments",
@@ -83,7 +75,7 @@ const TreatmentsSection = () => {
           "Depression",
         ],
         dosha: "Pitta",
-        image: `${Virechana}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933327/Virechana_licsss.jpg`,
         process: [
           "Preliminary assessment of Pitta imbalance",
           "Preparatory treatments with medicated oils",
@@ -106,7 +98,7 @@ const TreatmentsSection = () => {
           "Sciatica",
         ],
         dosha: "Vata",
-        image: `${Basti}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740935861/basti_zlc9cz.jpg`,
         process: [
           "Assessment of Vata imbalance patterns",
           "Selection of appropriate Basti type (Sneha or Niruha)",
@@ -129,7 +121,7 @@ const TreatmentsSection = () => {
           "Earache",
         ],
         dosha: "All doshas",
-        image: `${Nasya}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933327/Nasya_obsvap.webp`,
         process: [
           "Facial massage with herbal oils",
           "Steam application to open nasal passages",
@@ -152,7 +144,7 @@ const TreatmentsSection = () => {
           "Local inflammation",
         ],
         dosha: "Pitta",
-        image: `${Raktamokshan}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933326/Raktamokshan_tllbu9.jpg`,
         process: [
           "Thorough assessment of blood toxicity",
           "Selection of appropriate method (needles, leeches, or suction)",
@@ -175,7 +167,7 @@ const TreatmentsSection = () => {
           "Toxin mobilization",
         ],
         dosha: "All doshas",
-        image: `${Abhyanga}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933329/Abhyanga_ja6hok.jpg`,
         process: [
           "Selection of dosha-specific oils",
           "Warming of herbal oils to therapeutic temperature",
@@ -196,7 +188,7 @@ const TreatmentsSection = () => {
           "Anxiety reduction",
         ],
         dosha: "Vata and Pitta",
-        image: `${Shirodhara}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933342/Shirodhara_wizli9.png`,
         process: [
           "Brief head and shoulder massage to prepare",
           "Selection of appropriate herbal oil",
@@ -217,7 +209,7 @@ const TreatmentsSection = () => {
           "Cellulite reduction",
         ],
         dosha: "Kapha",
-        image: `${Udvartana}`,
+        image: `https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933326/Udvartana_sjrvbz.jpg`,
         process: [
           "Application of warming herbal paste",
           "Vigorous massage with herbal powders",

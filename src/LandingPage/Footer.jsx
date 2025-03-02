@@ -13,7 +13,6 @@ import {
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
-import AnitaAyurvedaLogo from "../assets/AnitaAyurvedaLogo.png";
 
 const Footer = () => {
   return (
@@ -23,7 +22,10 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-6">
               <div className="h-16 w-16  rounded-full flex items-center justify-center">
-                <img src={AnitaAyurvedaLogo} alt="Anita Ayurveda Logo" />
+                <img
+                  src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933329/AnitaAyurvedaLogo_ggkap2.png"
+                  alt="Anita Ayurveda Logo"
+                />
               </div>
               <div className="ml-3">
                 <h3 className="text-white font-serif">Ayurveda Wellness</h3>
