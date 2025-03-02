@@ -13,20 +13,102 @@ import {
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "../components/ui/carousel";
 
 const AboutSection = () => {
+  // Example media items - replace with your actual content
+  const mediaItems = [
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933262/Shirodhara_p67uau.jpg",
+      alt: "Our Clinic",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933268/Medicines_aslbo2.jpg",
+      alt: "Our Clinic",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933271/SuvarnaPrashan_nagmrq.jpg",
+      alt: "Treatments",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933276/SuvarnaPrashan4_azj0rw.jpg",
+      alt: "Treatments",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933272/SuvarnaPrashan3_xx4glf.jpg",
+      alt: "Treatments",
+    },
+    {
+      type: "video",
+      src: "https://res.cloudinary.com/dkv3bx51z/video/upload/v1740933270/Shirodhara_h6wcuh.mp4",
+      alt: "Clinic Tour",
+    },
+    {
+      type: "video",
+      src: "https://res.cloudinary.com/dkv3bx51z/video/upload/v1740933279/Jalu_rvsufb.mov",
+      alt: "Clinic Tour",
+    },
+    {
+      type: "video",
+      src: "https://res.cloudinary.com/dkv3bx51z/video/upload/v1740933324/Snigdha_dagdha_eljyvx.mp4",
+      alt: "Clinic Tour",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933267/ClinicImage_rxvzwu.jpg",
+      alt: "Facilities",
+    },
+  ];
+
   return (
     <div className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative">
-            <div className="aspect-video rounded-2xl overflow-hidden">
-              <img
-                src="/api/placeholder/600/400"
-                alt="Our Clinic"
-                className="object-cover w-full h-full"
-              />
-            </div>
+            <Carousel
+              className="w-full rounded-2xl overflow-hidden"
+              opts={{ loop: true, align: "start", autoplay: true }}
+            >
+              <CarouselContent>
+                {mediaItems.map((item, index) => (
+                  <CarouselItem key={index} className="flex justify-center">
+                    <div className="h-96 flex items-center justify-center">
+                      {item.type === "image" ? (
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      ) : (
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="max-h-full max-w-full object-contain"
+                        >
+                          <source src={item.src} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
             <div className="absolute -bottom-8 -right-8 bg-emerald-50 p-8 rounded-2xl">
               <h3 className="text-3xl font-serif text-emerald-600 mb-2">25+</h3>
               <p className="text-stone-600">Years of Experience</p>
