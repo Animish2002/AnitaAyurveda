@@ -630,7 +630,7 @@ const TreatmentsSection = () => {
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-emerald-700 mb-1">
-                  15+
+                  5+
                 </div>
                 <div className="text-sm text-stone-600">
                   Expert practitioners
