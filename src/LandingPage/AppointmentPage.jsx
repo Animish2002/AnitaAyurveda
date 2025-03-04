@@ -129,7 +129,7 @@ ${formData.notes || "No additional notes"}
   };
 
   return (
-    <section id="contact">
+    <section id="appointment">
       <div className="bg-stone-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}

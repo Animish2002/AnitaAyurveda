@@ -36,6 +36,23 @@ import {
 const TreatmentsSection = () => {
   const [selectedDosha, setSelectedDosha] = useState("all");
   const [expandedCard, setExpandedCard] = useState(null);
+  const scrollToSection = (sectionId) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  // Handle home scroll
+  const handleHomeScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const treatments = {
     panchakarma: [
@@ -338,9 +355,6 @@ const TreatmentsSection = () => {
                 {panchakarmaInfo.description}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-white text-emerald-800 hover:bg-emerald-50">
-                  Discover Panchakarma
-                </Button>
                 <Button
                   onClick={() =>
                     window.open(
@@ -348,6 +362,12 @@ const TreatmentsSection = () => {
                       "_blank"
                     )
                   }
+                  className="bg-white text-emerald-800 hover:bg-emerald-50"
+                >
+                  Discover Panchakarma
+                </Button>
+                <Button
+                  onClick={() => scrollToSection("#appointment")}
                   variant="outline"
                   className="border-white text-white bg-white/10 backdrop-blur-sm"
                 >
@@ -653,7 +673,10 @@ const TreatmentsSection = () => {
               and needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-emerald-800 hover:bg-emerald-50">
+              <Button
+                onClick={() => scrollToSection("#appointment")}
+                className="bg-white text-emerald-800 hover:bg-emerald-50"
+              >
                 Schedule a Consultation
               </Button>
               <Button

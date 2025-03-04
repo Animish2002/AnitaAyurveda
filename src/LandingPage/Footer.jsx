@@ -15,6 +15,24 @@ import { Card, CardContent } from "../components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 
 const Footer = () => {
+  const scrollToSection = (sectionId) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  // Handle home scroll
+  const handleHomeScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="bg-stone-900 text-stone-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -28,7 +46,7 @@ const Footer = () => {
                 />
               </div>
               <div className="ml-3">
-                <h3 className="text-white font-serif">Ayurveda Wellness</h3>
+                <h3 className="text-white font-serif">Anita Ayurveda</h3>
                 <p className="text-emerald-400 text-sm">
                   Holistic Healing Center
                 </p>
@@ -44,36 +62,40 @@ const Footer = () => {
             <h4 className="text-white font-medium mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a
+                <button
+                  onClick={handleHomeScroll}
                   href="#"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Home
-                </a>
+                </button>
               </li>
               <li>
-                <a
+                <button
+                  onClick={() => scrollToSection("#about")}
                   href="#"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   About Us
-                </a>
+                </button>
               </li>
               <li>
-                <a
+                <button
+                  onClick={() => scrollToSection("#treatments")}
                   href="#"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Treatments
-                </a>
+                </button>
               </li>
               <li>
-                <a
+                <button
+                  onClick={() => scrollToSection("#contact")}
                   href="#"
                   className="hover:text-emerald-400 transition-colors"
                 >
                   Contact
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -116,17 +138,29 @@ const Footer = () => {
               </a> */}
             </div>
             <div className="mt-6">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 w-full">
+              <Button
+                onClick={() => scrollToSection("#appointment")}
+                className="bg-emerald-600 hover:bg-emerald-700 w-full"
+              >
                 Book Appointment
               </Button>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-stone-800 mt-12 pt-8 text-center text-sm">
+        <div className="border-t border-stone-800 mt-12 pt-8 text-left text-sm flex flex-col items-center sm:flex-row sm:justify-between">
           <p>
             &copy; {new Date().getFullYear()}&nbsp;Anita Ayurveda. All rights
             reserved.
+          </p>
+          <p className="mt-4 sm:mt-0">
+            Developed with ❤ by&nbsp;
+            <a
+              href="https://www.animishchopade.in/"
+              className="text-blue-400 transition-colors hover:text-emerald-400"
+            >
+              Animish Chopade
+            </a>
           </p>
         </div>
       </div>

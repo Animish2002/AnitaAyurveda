@@ -12,6 +12,23 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 
 const HeroSection = () => {
+  const scrollToSection = (sectionId) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  // Handle home scroll
+  const handleHomeScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div className="bg-gradient-to-br from-emerald-50 to-white">
       {/* Initial Hero Section */}
@@ -41,7 +58,11 @@ const HeroSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+              <Button
+                onClick={() => scrollToSection("#appointment")}
+                size="lg"
+                className="bg-emerald-600 hover:bg-emerald-700"
+              >
                 <BookOpen className="mr-2" /> Book Consultation
               </Button>
             </div>
