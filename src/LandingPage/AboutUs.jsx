@@ -36,6 +36,22 @@ const AboutSection = () => {
     },
     {
       type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1741078374/ClinicImage3_zcxeaf.jpg",
+      alt: "Our Clinic",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1741078368/DegreeWall_ut9jq8.jpg",
+      alt: "Our Clinic",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933267/ClinicImage_rxvzwu.jpg",
+      alt: "Our Clinic",
+    },
+
+    {
+      type: "image",
       src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933271/SuvarnaPrashan_nagmrq.jpg",
       alt: "Treatments",
     },
@@ -68,6 +84,11 @@ const AboutSection = () => {
       type: "image",
       src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933267/ClinicImage_rxvzwu.jpg",
       alt: "Facilities",
+    },
+    {
+      type: "image",
+      src: "https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933272/Poster3_flfvdl.jpg",
+      alt: "Our Clinic",
     },
   ];
 
