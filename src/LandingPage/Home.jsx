@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutUs";
@@ -9,21 +9,53 @@ import TreatmentsSection from "./TreatmentsSection";
 import { motion } from "framer-motion";
 
 const Home = () => {
+  const aboutRef = useRef(null);
+  const treatmentsRef = useRef(null);
+  const appointmentRef = useRef(null);
+  const reviewsRef = useRef(null);
+
+  const scrollToSection = (elementRef) => {
+    elementRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 1.3 }}
-        className=" h-screen"
+        transition={{ duration: 2.0 }}
+        className="h-screen"
       >
-        <Navbar />
+        <Navbar
+          onHomeClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onAboutClick={() => scrollToSection(aboutRef)}
+          onTreatmentsClick={() => scrollToSection(treatmentsRef)}
+          onAppointmentClick={() => scrollToSection(appointmentRef)}
+          onReviewsClick={() => scrollToSection(reviewsRef)}
+        />
+
         <HeroSection />
-        <AboutSection />
-        <TreatmentsSection />
-        <AppointmentPage />
-        <ReviewsSection />
+
+        <div ref={aboutRef}>
+          <AboutSection />
+        </div>
+
+        <div ref={treatmentsRef}>
+          <TreatmentsSection />
+        </div>
+
+        <div ref={appointmentRef}>
+          <AppointmentPage />
+        </div>
+
+        <div ref={reviewsRef}>
+          <ReviewsSection />
+        </div>
+
         <Footer />
       </motion.div>
     </>
@@ -31,3 +63,4 @@ const Home = () => {
 };
 
 export default Home;
+

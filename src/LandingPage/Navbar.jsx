@@ -12,6 +12,25 @@ import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet";
 import { Menu } from "lucide-react";
 
 const Navbar = () => {
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  // Handle home scroll
+  const handleHomeScroll = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="border-b bg-white">
       <div className="flex h-20 items-center px-4 max-w-7xl mx-auto">
@@ -38,32 +57,36 @@ const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink
+                  onClick={handleHomeScroll}
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  href="/"
+                  href="#"
                 >
                   Home
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
+                  onClick={() => scrollToSection("#about")}
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  href="#about"
+                  href="#"
                 >
                   About Us
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
+                  onClick={() => scrollToSection("#treatments")}
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  href="#treatments"
+                  href="#"
                 >
                   Treatments
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
+                  onClick={() => scrollToSection("#contact")}
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  href="#contact"
+                  href="#"
                 >
                   Contact
                 </NavigationMenuLink>
@@ -71,7 +94,10 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button className="bg-emerald-600 hover:bg-emerald-700">
+          <Button
+            onClick={() => scrollToSection("#appointment")}
+            className="bg-emerald-600 hover:bg-emerald-700"
+          >
             Book Appointment
           </Button>
         </div>
@@ -86,19 +112,38 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
-                <Button variant="ghost" className="justify-start" asChild>
-                  <a href="/">Home</a>
+                <Button
+                  variant="ghost"
+                  className="justify-start"
+                  onClick={handleHomeScroll}
+                >
+                  Home
                 </Button>
-                <Button variant="ghost" className="justify-start" asChild>
-                  <a href="/about">About Us</a>
+                <Button
+                  variant="ghost"
+                  className="justify-start"
+                  onClick={() => scrollToSection("#about")}
+                >
+                  About Us
                 </Button>
-                <Button variant="ghost" className="justify-start" asChild>
-                  <a href="/treatments">Treatments</a>
+                <Button
+                  variant="ghost"
+                  className="justify-start"
+                  onClick={() => scrollToSection("#treatments")}
+                >
+                  Treatments
                 </Button>
-                <Button variant="ghost" className="justify-start" asChild>
-                  <a href="/contact">Contact</a>
+                <Button
+                  variant="ghost"
+                  className="justify-start"
+                  onClick={() => scrollToSection("#contact")}
+                >
+                  Contact
                 </Button>
-                <Button className="bg-emerald-600 hover:bg-emerald-700 mt-4">
+                <Button
+                  className="bg-emerald-600 hover:bg-emerald-700 mt-4"
+                  onClick={() => scrollToSection("#appointment")}
+                >
                   Book Appointment
                 </Button>
               </div>
