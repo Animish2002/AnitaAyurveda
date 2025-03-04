@@ -1,104 +1,203 @@
 import React from "react";
 import {
   Star,
-  Clock,
-  Phone,
-  Mail,
-  MapPin,
-  ChevronRight,
-  Instagram,
-  Facebook,
-  Twitter,
+  BookOpen,
+  GraduationCap,
+  Stethoscope,
+  BookOpenCheck,
+  CheckCircle,
+  Award,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 
-// Hero Section Component
 const HeroSection = () => {
   return (
-    <div className="relative bg-stone-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6">
-              Experience Natural Healing Through Ancient Wisdom
+    <div className="bg-gradient-to-br from-emerald-50 to-white">
+      {/* Initial Hero Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content Column */}
+          <div className="space-y-6">
+            <div className="bg-emerald-100/50 inline-block px-4 py-2 rounded-full">
+              <div className="flex items-center space-x-2 text-emerald-800">
+                <Award size={20} />
+                <span className="text-sm font-medium">
+                  Certified Ayurvedic Wellness Center
+                </span>
+              </div>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 leading-tight">
+              Holistic Healing through{" "}
+              <span className="text-emerald-600">Ayurvedic Wisdom</span>
             </h1>
-            <p className="text-lg text-stone-600 mb-8">
-              Discover the power of Ayurvedic healing at our Ayurveda wellness
-              center. Our experienced practitioners combine traditional methods
-              with modern care.
+
+            <p className="text-xl text-stone-600 leading-relaxed">
+              Transform your health journey with personalized Ayurvedic
+              treatments that harmonize body, mind, and spirit. Our expert
+              practitioners combine time-honored traditional techniques with
+              modern, evidence-based approaches.
             </p>
-            <div className="flex gap-4">
-              <Button className="bg-emerald-600 hover:bg-emerald-700">
-                Book Consultation
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700">
+                <BookOpen className="mr-2" /> Book Consultation
               </Button>
-              <Button
-                variant="outline"
-                className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
-              >
-                Learn More
-              </Button>
+            </div>
+
+            <div className="flex items-center space-x-4 pt-4">
+              <div className="flex items-center">
+                <Star className="text-yellow-400 fill-yellow-400" />
+                <span className="ml-2 font-semibold text-stone-700">
+                  4.9/5 Rating
+                </span>
+              </div>
+              <div className="flex items-center">
+                <CheckCircle className="text-emerald-500" />
+                <span className="ml-2 text-stone-600">200+ Happy Patients</span>
+              </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="aspect-square rounded-full bg-emerald-100 p-8">
-              <div className="w-full h-full overflow-hidden rounded-full">
-                <img
-                  src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741078368/ProfilePhotoNew2_q8w4hq.jpg"
-                  alt="Ayurvedic Treatment"
-                  className="rounded-full object-contain"
-                />
+
+          {/* Image Column */}
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="w-full max-w-lg aspect-square">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-emerald-100 rounded-full blur-xl opacity-70"></div>
+                <div className="relative z-10 aspect-square rounded-full overflow-hidden border-8 border-white shadow-xl">
+                  <img
+                    src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741078368/ProfilePhotoNew2_q8w4hq.jpg"
+                    alt="Dr. Ankita Nikhil Chopade Manave"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="absolute bottom-4 right-4 z-20">
+                  <Card className="w-64 shadow-lg">
+                    <CardContent className="p-4">
+                      <div className="flex items-center space-x-3">
+                        <img
+                          src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741109346/doctor_llxdmc.png"
+                          alt="Doctor Avatar"
+                          className="w-12 h-12 rounded-full object-cover"
+                        />
+                        <div>
+                          <h4 className="font-bold text-stone-800">
+                            Dr. Ankita Chopade
+                          </h4>
+                          <p className="text-sm text-stone-600">
+                            Ayurveda Specialist
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-lg shadow-lg">
-              <div className="flex items-center gap-2">
-                <Star className="text-yellow-400 fill-yellow-400" />
-                <span className="font-medium">4.9/5 Rating</span>
-              </div>
-              <p className="text-sm text-stone-600">Based on 200+ reviews</p>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* About the Doctor Section */}
-        <div className="mt-16 bg-white p-8 rounded-lg shadow-lg">
-          <div className="flex items-center gap-6">
-            <Avatar className="w-30 h-30 object-contain">
-              <AvatarImage src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741078374/ProfilePhotoNew_gx3abq.jpg" />
-              <AvatarFallback>Dr. A</AvatarFallback>
-            </Avatar>
-            <div>
-              <h2 className="text-3xl font-serif text-stone-800">
-                Dr. Ankita Nikhil Chopade Manave
-              </h2>
-              <p className="text-lg text-stone-600">
-                MD in Dravyaguna | Ayurveda Practitioner
-              </p>
+      {/* Doctor's Background Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h2 className="text-4xl font-bold text-center text-stone-800 mb-8">
+            Meet Dr. Ankita Nikhil Chopade Manave
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
+                <GraduationCap
+                  className="text-emerald-600 flex-shrink-0"
+                  size={40}
+                />
+                <div>
+                  <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                    Educational Journey
+                  </h3>
+                  <p className="text-stone-600">
+                    Graduated from Yashwant Ayurveda College, Kodoli—a premier
+                    institution covering both Ayurveda and allopathy medicine.
+                    This foundational experience was crucial in shaping my
+                    professional growth.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
+                <BookOpenCheck
+                  className="text-emerald-600 flex-shrink-0"
+                  size={40}
+                />
+                <div>
+                  <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                    Advanced Specialization
+                  </h3>
+                  <p className="text-stone-600">
+                    Completed MD in Dravyaguna from the Institute of Teaching
+                    and Research in Ayurveda, Jamnagar, Gujarat. This
+                    WHO-collaborative program deepened my understanding of
+                    Ayurvedic principles and clinical practices.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
+                <Stethoscope
+                  className="text-emerald-600 flex-shrink-0"
+                  size={40}
+                />
+                <div>
+                  <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                    Current Practice
+                  </h3>
+                  <p className="text-stone-600">
+                    Practicing at Anita Ayurveda Clinic & Panchakarma Center,
+                    Bakewadi. Dedicated to providing holistic consultations that
+                    restore balance to mind, body, and spirit.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-emerald-100 p-6 rounded-lg">
+                <h4 className="text-xl font-semibold text-stone-800 mb-4">
+                  Comprehensive Panchakarma Services
+                </h4>
+                <ul className="grid grid-cols-2 gap-2 text-stone-700">
+                  {[
+                    "Snehan",
+                    "Swedan",
+                    "Basti",
+                    "Vaman",
+                    "Virechan",
+                    "Pind Sweda",
+                    "Shirodhara",
+                  ].map((service) => (
+                    <li key={service} className="flex items-center">
+                      <CheckCircle
+                        className="text-emerald-600 mr-2"
+                        size={16}
+                      />
+                      {service}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-          <p className="mt-6 text-stone-600 text-lg">
-            Hello everyone, I am Dr. Ankita Nikhil Chopade Manave. Here, I want
-            to share my journey of “Being a Vaidya” (Ayurveda practitioner). I
-            graduated from Yashwant Ayurveda College, Kodoli, one of the best
-            Ayurveda colleges, where I gained extensive knowledge of both
-            Ayurveda and allopathy medicine.
-          </p>
-          <p className="mt-4 text-stone-600 text-lg">
-            After completing my BAMS, I pursued post-graduation at the Institute
-            of Teaching and Research in Ayurveda, University in Jamnagar,
-            Gujarat, a WHO-recognized center for traditional medicines.
-            Specializing in Dravyaguna (MD), I deepened my understanding of
-            Ayurvedic principles, treatments, and therapies, enhancing my
-            clinical skills and knowledge.
-          </p>
-          <p className="mt-4 text-stone-600 text-lg">
-            Under the guidance of my mentor, Vd. Bhupesh Patel, I gained
-            confidence and courage to practice Ayurveda. Additionally, I trained
-            in Panchkarma therapy under the expertise of Joshi Sir and Ma’am in
-            Dhule, where I received practical and theoretical insights that
-            greatly benefit my current practice.
-          </p>
+
+          <div className="text-center mt-8">
+            <blockquote className="text-2xl italic text-stone-700 max-w-2xl mx-auto">
+              "Ayurveda has given us a new vision—one that not only elevates us
+              but also deepens our understanding of health. Ayurveda first heals
+              you, then empowers you to heal the world."
+            </blockquote>
+          </div>
         </div>
       </div>
     </div>
