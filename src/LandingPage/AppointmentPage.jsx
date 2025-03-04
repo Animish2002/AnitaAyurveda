@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../components/ui/select";
+import { Toaster, toast } from "sonner";
 import axios from "axios";
 
 const AppointmentPage = () => {
@@ -98,8 +99,12 @@ ${formData.notes || "No additional notes"}
       const telegramSent = await sendTelegramNotification();
 
       if (telegramSent) {
-        alert("Appointment booked successfully!");
-        // Reset form or redirect as needed
+        // Success toast notification
+        toast.success("Appointment Booked Successfully!", {
+          description: `Your appointment for ${formData.treatment} has been scheduled on ${formData.date} at ${formData.time}:00 AM.`,
+        });
+
+        // Reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -110,11 +115,16 @@ ${formData.notes || "No additional notes"}
           notes: "",
         });
       } else {
-        alert("Booking failed. Please try again.");
+        // Error toast if Telegram notification fails
+        toast.error("Booking Failed", {
+          description: "Unable to book appointment. Please try again.",
+        });
       }
     } catch (error) {
       console.error("Submission error", error);
-      alert("An error occurred. Please try again.");
+      toast.error("Error", {
+        description: "An unexpected error occurred. Please try again.",
+      });
     }
   };
 
@@ -156,6 +166,7 @@ ${formData.notes || "No additional notes"}
                           value={formData.firstName}
                           onChange={handleInputChange}
                           className="border-stone-200"
+                          required
                         />
                       </div>
                       <div className="space-y-2">
@@ -179,6 +190,7 @@ ${formData.notes || "No additional notes"}
                         onChange={handleInputChange}
                         placeholder="Enter phone number"
                         className="border-stone-200"
+                        required
                       />
                     </div>
                   </div>
@@ -217,6 +229,7 @@ ${formData.notes || "No additional notes"}
                           value={formData.date}
                           onChange={handleInputChange}
                           className="border-stone-200"
+                          required
                         />
                       </div>
                       <div className="space-y-2">
@@ -315,6 +328,7 @@ ${formData.notes || "No additional notes"}
           </div>
         </div>
       </div>
+      <Toaster richColors />
     </section>
   );
 };
