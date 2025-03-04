@@ -130,8 +130,8 @@ const AboutSection = () => {
               <CarouselPrevious className="left-2" />
               <CarouselNext className="right-2" />
             </Carousel>
-            <div className="absolute -bottom-8 -right-8 bg-emerald-50 p-8 rounded-2xl">
-              <h3 className="text-3xl font-serif text-emerald-600 mb-2">5+</h3>
+            <div className="absolute -bottom-12 -right-10 bg-emerald-50 p-4 rounded-2xl">
+              <h3 className="text-2xl font-serif text-emerald-600 mb-2">5+</h3>
               <p className="text-stone-600">Years of Experience</p>
             </div>
           </div>
@@ -178,12 +178,7 @@ const AboutSection = () => {
                 </p>
               </div>
             </div>
-            <Button
-              variant="outline"
-              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
-            >
-              Learn More About Us <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
+            
           </div>
         </div>
       </div>

@@ -33,7 +33,6 @@ import {
   Info,
 } from "lucide-react";
 
-
 const TreatmentsSection = () => {
   const [selectedDosha, setSelectedDosha] = useState("all");
   const [expandedCard, setExpandedCard] = useState(null);
@@ -297,7 +296,10 @@ const TreatmentsSection = () => {
   };
 
   return (
-    <section id="treatments" className="bg-gradient-to-b from-stone-50 to-white py-24 relative overflow-hidden">
+    <section
+      id="treatments"
+      className="bg-gradient-to-b from-stone-50 to-white py-24 relative overflow-hidden"
+    >
       {/* Decorative elements */}
 
       <div className="absolute bottom-0 right-0 w-1/3 h-96 bg-emerald-50 rounded-full blur-3xl opacity-40"></div>
@@ -340,6 +342,12 @@ const TreatmentsSection = () => {
                   Discover Panchakarma
                 </Button>
                 <Button
+                  onClick={() =>
+                    window.open(
+                      "https://en.wikipedia.org/wiki/Ayurveda",
+                      "_blank"
+                    )
+                  }
                   variant="outline"
                   className="border-white text-white bg-white/10 backdrop-blur-sm"
                 >
@@ -650,7 +658,10 @@ const TreatmentsSection = () => {
               </Button>
               <Button
                 onClick={() =>
-                  window.open("https://ayurveda.com/introduction-to-panchakarma/", "_blank")
+                  window.open(
+                    "https://hi.wikipedia.org/wiki/%E0%A4%AA%E0%A4%82%E0%A4%9A%E0%A4%95%E0%A4%B0%E0%A5%8D%E0%A4%AE",
+                    "_blank"
+                  )
                 }
                 variant="outline"
                 className="border-white text-white bg-white/10 backdrop-blur-sm"
