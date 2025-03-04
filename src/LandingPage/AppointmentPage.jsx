@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapPin, Clock, Phone, Calendar, User } from "lucide-react";
 import { Button } from "../components/ui/button";
 import {
@@ -17,8 +17,107 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../components/ui/select";
+import axios from "axios";
 
 const AppointmentPage = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    treatment: "",
+    date: "",
+    time: "",
+    notes: "",
+  });
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  };
+
+  // Handle treatment selection
+  const handleTreatmentChange = () => {
+    setFormData((prev) => ({
+      ...prev,
+      treatment: value,
+    }));
+  };
+
+  // Handle time selection
+  const handleTimeChange = () => {
+    setFormData((prev) => ({
+      ...prev,
+      time: value,
+    }));
+  };
+
+  // Send Telegram notification
+  const sendTelegramNotification = async () => {
+    const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+    // Construct message
+    const message = `
+📅 New Appointment Booking 📅
+
+Name: ${formData.firstName} ${formData.lastName}
+Phone: ${formData.phoneNumber}
+Treatment: ${formData.treatment}
+Date: ${formData.date}
+Time: ${formData.time || "Not Selected"}
+
+Additional Notes:
+${formData.notes || "No additional notes"}
+    `;
+
+    try {
+      await axios.post(
+        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+        {
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+        }
+      );
+      return true;
+    } catch (error) {
+      console.error("Failed to send Telegram notification", error);
+      return false;
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Send Telegram notification
+      const telegramSent = await sendTelegramNotification();
+
+      if (telegramSent) {
+        alert("Appointment booked successfully!");
+        // Reset form or redirect as needed
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phoneNumber: "",
+          treatment: "",
+          date: "",
+          time: "",
+          notes: "",
+        });
+      } else {
+        alert("Booking failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
   return (
     <section id="contact">
       <div className="bg-stone-50 py-16">
@@ -37,6 +136,7 @@ const AppointmentPage = () => {
           {/* Main Content */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Booking Form */}
+
             <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="font-serif text-stone-800">
@@ -44,7 +144,7 @@ const AppointmentPage = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Personal Information */}
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
@@ -53,6 +153,8 @@ const AppointmentPage = () => {
                         <Input
                           id="firstName"
                           placeholder="Enter first name"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
                           className="border-stone-200"
                         />
                       </div>
@@ -61,26 +163,20 @@ const AppointmentPage = () => {
                         <Input
                           id="lastName"
                           placeholder="Enter last name"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
                           className="border-stone-200"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="phoneNumber">Phone Number</Label>
                       <Input
-                        id="email"
-                        type="email"
-                        placeholder="your@email.com"
-                        className="border-stone-200"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
+                        id="phoneNumber"
                         type="tel"
+                        value={formData.phoneNumber}
+                        onChange={handleInputChange}
                         placeholder="Enter phone number"
                         className="border-stone-200"
                       />
@@ -118,6 +214,8 @@ const AppointmentPage = () => {
                         <Input
                           id="date"
                           type="date"
+                          value={formData.date}
+                          onChange={handleInputChange}
                           className="border-stone-200"
                         />
                       </div>
@@ -143,13 +241,18 @@ const AppointmentPage = () => {
                       <Label htmlFor="notes">Additional Notes</Label>
                       <Textarea
                         id="notes"
+                        value={formData.notes}
+                        onChange={handleInputChange}
                         placeholder="Any specific concerns or requirements..."
                         className="border-stone-200 h-24"
                       />
                     </div>
                   </div>
 
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                  <Button
+                    type="submit"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700"
+                  >
                     Book Appointment
                   </Button>
                 </form>
@@ -206,24 +309,6 @@ const AppointmentPage = () => {
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* Emergency Contact */}
-              <Card className="bg-emerald-50 border-emerald-100">
-                <CardContent className="p-6">
-                  <h3 className="font-serif text-xl text-emerald-800 mb-2">
-                    Need Urgent Care?
-                  </h3>
-                  <p className="text-emerald-600 mb-4">
-                    Our practitioners are available for emergency consultations.
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-100"
-                  >
-                    Call Emergency Line
-                  </Button>
                 </CardContent>
               </Card>
             </div>
