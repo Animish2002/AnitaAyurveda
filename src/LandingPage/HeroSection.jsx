@@ -101,105 +101,107 @@ const HeroSection = () => {
       </div>
 
       {/* Doctor's Background Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <h2 className="text-4xl font-bold text-center text-stone-800 mb-8">
-            Meet Dr. Ankita Nikhil Chopade Manave
-          </h2>
+      <section id="about">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-white">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <h2 className="text-4xl font-bold text-center text-stone-800 mb-8">
+              Meet Dr. Ankita Nikhil Chopade Manave
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
-                <GraduationCap
-                  className="text-emerald-600 flex-shrink-0"
-                  size={40}
-                />
-                <div>
-                  <h3 className="text-xl font-semibold text-stone-800 mb-2">
-                    Educational Journey
-                  </h3>
-                  <p className="text-stone-600">
-                    Graduated from Yashwant Ayurveda College, Kodoli—a premier
-                    institution covering both Ayurveda and allopathy medicine.
-                    This foundational experience was crucial in shaping my
-                    professional growth.
-                  </p>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
+                  <GraduationCap
+                    className="text-emerald-600 flex-shrink-0"
+                    size={40}
+                  />
+                  <div>
+                    <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                      Educational Journey
+                    </h3>
+                    <p className="text-stone-600">
+                      Graduated from Yashwant Ayurveda College, Kodoli—a premier
+                      institution covering both Ayurveda and allopathy medicine.
+                      This foundational experience was crucial in shaping my
+                      professional growth.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
+                  <BookOpenCheck
+                    className="text-emerald-600 flex-shrink-0"
+                    size={40}
+                  />
+                  <div>
+                    <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                      Advanced Specialization
+                    </h3>
+                    <p className="text-stone-600">
+                      Completed MD in Dravyaguna from the Institute of Teaching
+                      and Research in Ayurveda, Jamnagar, Gujarat. This
+                      WHO-collaborative program deepened my understanding of
+                      Ayurvedic principles and clinical practices.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
-                <BookOpenCheck
-                  className="text-emerald-600 flex-shrink-0"
-                  size={40}
-                />
-                <div>
-                  <h3 className="text-xl font-semibold text-stone-800 mb-2">
-                    Advanced Specialization
-                  </h3>
-                  <p className="text-stone-600">
-                    Completed MD in Dravyaguna from the Institute of Teaching
-                    and Research in Ayurveda, Jamnagar, Gujarat. This
-                    WHO-collaborative program deepened my understanding of
-                    Ayurvedic principles and clinical practices.
-                  </p>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
+                  <Stethoscope
+                    className="text-emerald-600 flex-shrink-0"
+                    size={40}
+                  />
+                  <div>
+                    <h3 className="text-xl font-semibold text-stone-800 mb-2">
+                      Current Practice
+                    </h3>
+                    <p className="text-stone-600">
+                      Practicing at Anita Ayurveda Clinic & Panchakarma Center,
+                      Bakewadi. Dedicated to providing holistic consultations
+                      that restore balance to mind, body, and spirit.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-emerald-100 p-6 rounded-lg">
+                  <h4 className="text-xl font-semibold text-stone-800 mb-4">
+                    Comprehensive Panchakarma Services
+                  </h4>
+                  <ul className="grid grid-cols-2 gap-2 text-stone-700">
+                    {[
+                      "Snehan",
+                      "Swedan",
+                      "Basti",
+                      "Vaman",
+                      "Virechan",
+                      "Pind Sweda",
+                      "Shirodhara",
+                    ].map((service) => (
+                      <li key={service} className="flex items-center">
+                        <CheckCircle
+                          className="text-emerald-600 mr-2"
+                          size={16}
+                        />
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="flex items-start space-x-4 bg-emerald-50 p-6 rounded-lg">
-                <Stethoscope
-                  className="text-emerald-600 flex-shrink-0"
-                  size={40}
-                />
-                <div>
-                  <h3 className="text-xl font-semibold text-stone-800 mb-2">
-                    Current Practice
-                  </h3>
-                  <p className="text-stone-600">
-                    Practicing at Anita Ayurveda Clinic & Panchakarma Center,
-                    Bakewadi. Dedicated to providing holistic consultations that
-                    restore balance to mind, body, and spirit.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-emerald-100 p-6 rounded-lg">
-                <h4 className="text-xl font-semibold text-stone-800 mb-4">
-                  Comprehensive Panchakarma Services
-                </h4>
-                <ul className="grid grid-cols-2 gap-2 text-stone-700">
-                  {[
-                    "Snehan",
-                    "Swedan",
-                    "Basti",
-                    "Vaman",
-                    "Virechan",
-                    "Pind Sweda",
-                    "Shirodhara",
-                  ].map((service) => (
-                    <li key={service} className="flex items-center">
-                      <CheckCircle
-                        className="text-emerald-600 mr-2"
-                        size={16}
-                      />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="text-center mt-8">
+              <blockquote className="text-2xl italic text-stone-700 max-w-2xl mx-auto">
+                "Ayurveda has given us a new vision—one that not only elevates
+                us but also deepens our understanding of health. Ayurveda first
+                heals you, then empowers you to heal the world."
+              </blockquote>
             </div>
-          </div>
-
-          <div className="text-center mt-8">
-            <blockquote className="text-2xl italic text-stone-700 max-w-2xl mx-auto">
-              "Ayurveda has given us a new vision—one that not only elevates us
-              but also deepens our understanding of health. Ayurveda first heals
-              you, then empowers you to heal the world."
-            </blockquote>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

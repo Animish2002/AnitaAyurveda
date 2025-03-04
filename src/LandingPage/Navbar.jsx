@@ -47,7 +47,7 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  href="/contact"
+                  href="#about"
                 >
                   About Us
                 </NavigationMenuLink>
@@ -55,7 +55,7 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  href="/contact"
+                  href="#treatments"
                 >
                   Treatments
                 </NavigationMenuLink>
@@ -63,7 +63,7 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                  href="/contact"
+                  href="#contact"
                 >
                   Contact
                 </NavigationMenuLink>

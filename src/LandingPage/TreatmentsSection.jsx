@@ -33,6 +33,7 @@ import {
   Info,
 } from "lucide-react";
 
+
 const TreatmentsSection = () => {
   const [selectedDosha, setSelectedDosha] = useState("all");
   const [expandedCard, setExpandedCard] = useState(null);
@@ -296,9 +297,9 @@ const TreatmentsSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-stone-50 to-white py-24 relative overflow-hidden">
+    <section id="treatments" className="bg-gradient-to-b from-stone-50 to-white py-24 relative overflow-hidden">
       {/* Decorative elements */}
-     
+
       <div className="absolute bottom-0 right-0 w-1/3 h-96 bg-emerald-50 rounded-full blur-3xl opacity-40"></div>
       <div className="absolute top-40 left-10 w-20 h-20 bg-amber-100 rounded-full blur-xl opacity-60"></div>
 
@@ -326,12 +327,12 @@ const TreatmentsSection = () => {
               className="w-full h-full object-cover transform scale-110 hover:scale-105 transition-transform duration-3000"
             />
           </div>
-          <div className="absolute inset-0 z-20 flex items-center justify-center p-8">
+          <div className="absolute inset-0 z-20 flex items-center justify-center md:p-8 py-4">
             <div className="max-w-3xl text-center">
-              <h3 className="text-3xl md:text-4xl font-serif text-white mb-4 drop-shadow-md">
+              <h3 className="text-2xl md:text-4xl font-serif text-white mb-4 drop-shadow-md">
                 {panchakarmaInfo.title}
               </h3>
-              <p className="text-white/90 text-lg mb-8 leading-relaxed drop-shadow">
+              <p className="text-white/90 md:text-lg text-sm mb-8 leading-relaxed drop-shadow">
                 {panchakarmaInfo.description}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -340,7 +341,7 @@ const TreatmentsSection = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-white text-white hover:bg-white/20 backdrop-blur-sm"
+                  className="border-white text-white bg-white/10 backdrop-blur-sm"
                 >
                   Book a Consultation
                 </Button>
@@ -631,8 +632,6 @@ const TreatmentsSection = () => {
           </div>
         </div>
 
-    
-
         {/* CTA */}
         <div className="mt-16 text-center bg-gradient-to-r from-emerald-700 to-emerald-900 rounded-2xl p-12 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/api/placeholder/1000/600')] opacity-10 mix-blend-overlay"></div>
@@ -650,8 +649,11 @@ const TreatmentsSection = () => {
                 Schedule a Consultation
               </Button>
               <Button
+                onClick={() =>
+                  window.open("https://ayurveda.com/introduction-to-panchakarma/", "_blank")
+                }
                 variant="outline"
-                className="border-white text-white hover:bg-white/20"
+                className="border-white text-white bg-white/10 backdrop-blur-sm"
               >
                 Learn More About Panchakarma
               </Button>

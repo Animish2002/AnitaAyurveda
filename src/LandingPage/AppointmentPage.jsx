@@ -18,215 +18,219 @@ import {
   SelectValue,
 } from "../components/ui/select";
 
-
 const AppointmentPage = () => {
   return (
-    <div className="bg-stone-50 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-serif text-stone-800 mb-4">
-            Schedule Your Appointment
-          </h1>
-          <p className="text-stone-600 max-w-2xl mx-auto">
-            Take the first step towards holistic wellness. Book your
-            consultation with our experienced Ayurvedic practitioners.
-          </p>
-        </div>
+    <section id="contact">
+      <div className="bg-stone-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-3xl font-serif text-stone-800 mb-4">
+              Schedule Your Appointment
+            </h1>
+            <p className="text-stone-600 max-w-2xl mx-auto">
+              Take the first step towards holistic wellness. Book your
+              consultation with our experienced Ayurvedic practitioners.
+            </p>
+          </div>
 
-        {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Booking Form */}
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="font-serif text-stone-800">
-                Book Your Visit
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-6">
-                {/* Personal Information */}
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+          {/* Main Content */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Booking Form */}
+            <Card className="shadow-lg">
+              <CardHeader>
+                <CardTitle className="font-serif text-stone-800">
+                  Book Your Visit
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form className="space-y-6">
+                  {/* Personal Information */}
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="firstName">First Name</Label>
+                        <Input
+                          id="firstName"
+                          placeholder="Enter first name"
+                          className="border-stone-200"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="lastName">Last Name</Label>
+                        <Input
+                          id="lastName"
+                          placeholder="Enter last name"
+                          className="border-stone-200"
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name</Label>
+                      <Label htmlFor="email">Email</Label>
                       <Input
-                        id="firstName"
-                        placeholder="Enter first name"
+                        id="email"
+                        type="email"
+                        placeholder="your@email.com"
                         className="border-stone-200"
                       />
                     </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name</Label>
+                      <Label htmlFor="phone">Phone Number</Label>
                       <Input
-                        id="lastName"
-                        placeholder="Enter last name"
+                        id="phone"
+                        type="tel"
+                        placeholder="Enter phone number"
                         className="border-stone-200"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      className="border-stone-200"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      placeholder="Enter phone number"
-                      className="border-stone-200"
-                    />
-                  </div>
-                </div>
-
-                {/* Appointment Details */}
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="treatment">Treatment Type</Label>
-                    <Select>
-                      <SelectTrigger className="border-stone-200">
-                        <SelectValue placeholder="Select treatment" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="consultation">
-                          Initial Consultation
-                        </SelectItem>
-                        <SelectItem value="panchakarma">Panchakarma</SelectItem>
-                        <SelectItem value="massage">
-                          Ayurvedic Massage
-                        </SelectItem>
-                        <SelectItem value="followup">
-                          Follow-up Consultation
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
+                  {/* Appointment Details */}
+                  <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="date">Preferred Date</Label>
-                      <Input
-                        id="date"
-                        type="date"
-                        className="border-stone-200"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="time">Preferred Time</Label>
+                      <Label htmlFor="treatment">Treatment Type</Label>
                       <Select>
                         <SelectTrigger className="border-stone-200">
-                          <SelectValue placeholder="Select time" />
+                          <SelectValue placeholder="Select treatment" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="9">9:00 AM</SelectItem>
-                          <SelectItem value="10">10:00 AM</SelectItem>
-                          <SelectItem value="11">11:00 AM</SelectItem>
-                          <SelectItem value="14">2:00 PM</SelectItem>
-                          <SelectItem value="15">3:00 PM</SelectItem>
-                          <SelectItem value="16">4:00 PM</SelectItem>
+                          <SelectItem value="consultation">
+                            Initial Consultation
+                          </SelectItem>
+                          <SelectItem value="panchakarma">
+                            Panchakarma
+                          </SelectItem>
+                          <SelectItem value="massage">
+                            Ayurvedic Massage
+                          </SelectItem>
+                          <SelectItem value="followup">
+                            Follow-up Consultation
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="date">Preferred Date</Label>
+                        <Input
+                          id="date"
+                          type="date"
+                          className="border-stone-200"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="time">Preferred Time</Label>
+                        <Select>
+                          <SelectTrigger className="border-stone-200">
+                            <SelectValue placeholder="Select time" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="9">9:00 AM</SelectItem>
+                            <SelectItem value="10">10:00 AM</SelectItem>
+                            <SelectItem value="11">11:00 AM</SelectItem>
+                            <SelectItem value="14">2:00 PM</SelectItem>
+                            <SelectItem value="15">3:00 PM</SelectItem>
+                            <SelectItem value="16">4:00 PM</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="notes">Additional Notes</Label>
+                      <Textarea
+                        id="notes"
+                        placeholder="Any specific concerns or requirements..."
+                        className="border-stone-200 h-24"
+                      />
+                    </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="notes">Additional Notes</Label>
-                    <Textarea
-                      id="notes"
-                      placeholder="Any specific concerns or requirements..."
-                      className="border-stone-200 h-24"
-                    />
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    Book Appointment
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+
+            {/* Map and Contact Info */}
+            <div className="space-y-6">
+              {/* Map */}
+              <div className="rounded-lg overflow-hidden h-[300px] bg-white shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.494757215129!2d73.76888166959277!3d18.57498417015168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9e70a2bfab1%3A0xa80bc92fd30a3d8!2zQW5pdGEgQXl1cnZlZGEgJiBQYW5jaGthcm1hLCDgpIbgpK_gpYHgpLDgpY3gpLXgpYfgpKYg4KSG4KSj4KS_IOCkquCkguCkmuCkleCksOCljeCkriDgpJrgpL_gpJXgpL_gpKTgpY3gpLjgpL4!5e0!3m2!1sen!2sin!4v1740051805370!5m2!1sen!2sin"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Contact Information */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="font-serif text-xl text-stone-800 mb-6">
+                    Clinic Information
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <MapPin className="h-5 w-5 text-emerald-600" />
+                      <div>
+                        <p className="font-medium text-stone-800">Location</p>
+                        <p className="text-stone-600">
+                          Shop no 1, ground floor, Moze College, Plot no 2627,
+                          Balewadi, Pune, Maharashtra 411045
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="h-5 w-5 text-emerald-600" />
+                      <div>
+                        <p className="font-medium text-stone-800">
+                          Working Hours
+                        </p>
+                        <p className="text-stone-600">
+                          Monday - Saturday: 9:00 AM - 7:00 PM
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Phone className="h-5 w-5 text-emerald-600" />
+                      <div>
+                        <p className="font-medium text-stone-800">Contact</p>
+                        <p className="text-stone-600">+91 8459582371</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </CardContent>
+              </Card>
 
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Book Appointment
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Map and Contact Info */}
-          <div className="space-y-6">
-            {/* Map */}
-            <div className="rounded-lg overflow-hidden h-[300px] bg-white shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.494757215129!2d73.76888166959277!3d18.57498417015168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9e70a2bfab1%3A0xa80bc92fd30a3d8!2zQW5pdGEgQXl1cnZlZGEgJiBQYW5jaGthcm1hLCDgpIbgpK_gpYHgpLDgpY3gpLXgpYfgpKYg4KSG4KSj4KS_IOCkquCkguCkmuCkleCksOCljeCkriDgpJrgpL_gpJXgpL_gpKTgpY3gpLjgpL4!5e0!3m2!1sen!2sin!4v1740051805370!5m2!1sen!2sin"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-              />
+              {/* Emergency Contact */}
+              <Card className="bg-emerald-50 border-emerald-100">
+                <CardContent className="p-6">
+                  <h3 className="font-serif text-xl text-emerald-800 mb-2">
+                    Need Urgent Care?
+                  </h3>
+                  <p className="text-emerald-600 mb-4">
+                    Our practitioners are available for emergency consultations.
+                  </p>
+                  <Button
+                    variant="outline"
+                    className="border-emerald-600 text-emerald-600 hover:bg-emerald-100"
+                  >
+                    Call Emergency Line
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
-
-            {/* Contact Information */}
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-serif text-xl text-stone-800 mb-6">
-                  Clinic Information
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <MapPin className="h-5 w-5 text-emerald-600" />
-                    <div>
-                      <p className="font-medium text-stone-800">Location</p>
-                      <p className="text-stone-600">
-                      Shop no 1, ground floor, Moze College, Plot no 2627, Balewadi, Pune, Maharashtra 411045
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-emerald-600" />
-                    <div>
-                      <p className="font-medium text-stone-800">
-                        Working Hours
-                      </p>
-                      <p className="text-stone-600">
-                        Monday - Saturday: 9:00 AM - 7:00 PM
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="h-5 w-5 text-emerald-600" />
-                    <div>
-                      <p className="font-medium text-stone-800">Contact</p>
-                      <p className="text-stone-600">+91 8459582371</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Emergency Contact */}
-            <Card className="bg-emerald-50 border-emerald-100">
-              <CardContent className="p-6">
-                <h3 className="font-serif text-xl text-emerald-800 mb-2">
-                  Need Urgent Care?
-                </h3>
-                <p className="text-emerald-600 mb-4">
-                  Our practitioners are available for emergency consultations.
-                </p>
-                <Button
-                  variant="outline"
-                  className="border-emerald-600 text-emerald-600 hover:bg-emerald-100"
-                >
-                  Call Emergency Line
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
