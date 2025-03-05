@@ -41,7 +41,7 @@ const Footer = () => {
             <div className="flex items-center mb-6">
               <div className="h-16 w-16  rounded-full flex items-center justify-center">
                 <img
-                  src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1740933329/AnitaAyurvedaLogo_ggkap2.png"
+                  src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741200118/AnitaAyurvedaLogo_ggkap2.webp"
                   alt="Anita Ayurveda Logo"
                 />
               </div>
