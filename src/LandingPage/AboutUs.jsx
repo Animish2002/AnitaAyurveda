@@ -146,7 +146,7 @@ const AboutSection = () => {
               <CarouselNext className="right-2" />
             </Carousel>
             <div className="absolute -bottom-12 md:-right-10 right-6 bg-emerald-50 p-4 rounded-2xl">
-              <h3 className="text-lg md:text-2xl font-serif text-emerald-600 mb-2">5+</h3>
+              <h3 className="text-2xl font-serif text-emerald-600 mb-2">5+</h3>
               <p className="text-stone-600">Years of Experience</p>
             </div>
           </div>
