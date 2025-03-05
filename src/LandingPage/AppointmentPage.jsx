@@ -284,6 +284,7 @@ ${formData.notes || "No additional notes"}
               {/* Map */}
               <div className="rounded-lg overflow-hidden h-[300px] bg-white shadow-lg">
                 <iframe
+                  title="Google Maps"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.494757215129!2d73.76888166959277!3d18.57498417015168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9e70a2bfab1%3A0xa80bc92fd30a3d8!2zQW5pdGEgQXl1cnZlZGEgJiBQYW5jaGthcm1hLCDgpIbgpK_gpYHgpLDgpY3gpLXgpYfgpKYg4KSG4KSj4KS_IOCkquCkguCkmuCkleCksOCljeCkriDgpJrgpL_gpJXgpL_gpKTgpY3gpLjgpL4!5e0!3m2!1sen!2sin!4v1740051805370!5m2!1sen!2sin"
                   width="100%"
                   height="300"
@@ -340,7 +341,6 @@ ${formData.notes || "No additional notes"}
         richColors
         expand={true} // Optional: makes toasts more prominent
         pauseWhenHovered={true} // Optional: pause timer when hovering
-        
       />
     </section>
   );

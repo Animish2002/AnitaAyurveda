@@ -88,7 +88,7 @@ const HeroSection = () => {
                 <div className="absolute -inset-4 bg-emerald-100 rounded-full blur-xl opacity-70"></div>
                 <div className="relative z-10 aspect-square rounded-full overflow-hidden border-8 border-white shadow-xl">
                   <img
-                    src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741078368/ProfilePhotoNew2_q8w4hq.jpg"
+                    src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741201675/ProfilePhotoNew2_q8w4hq.webp"
                     alt="Dr. Ankita Nikhil Chopade Manave"
                     className="w-full h-full object-cover"
                   />
@@ -99,7 +99,7 @@ const HeroSection = () => {
                     <CardContent className="p-4">
                       <div className="flex items-center space-x-3">
                         <img
-                          src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741109346/doctor_llxdmc.png"
+                          src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741201583/doctor_llxdmc.webp"
                           alt="Doctor Avatar"
                           className="w-12 h-12 rounded-full object-cover"
                         />
