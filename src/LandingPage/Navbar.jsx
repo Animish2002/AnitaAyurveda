@@ -35,7 +35,7 @@ const Navbar = () => {
     <div className="border-b bg-white">
       <div className="flex h-20 items-center px-4 max-w-7xl mx-auto">
         <div className="flex items-center mr-8">
-          <div className=" w-20 rounded-full flex items-center justify-center">
+          <div className="w-20 rounded-full flex items-center justify-center">
             <img
               src="https://res.cloudinary.com/dkv3bx51z/image/upload/v1741200118/AnitaAyurvedaLogo_ggkap2.webp"
               alt="Anita Ayurveda Logo"
@@ -84,7 +84,7 @@ const Navbar = () => {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  onClick={() => scrollToSection("#contact")}
+                  onClick={() => scrollToSection("#appointment")}
                   className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-stone-50 hover:text-emerald-600 focus:bg-stone-50 focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   href="#"
                 >

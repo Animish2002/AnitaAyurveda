@@ -98,9 +98,8 @@
     @apply bg-background text-foreground;
   }
 }
-/* 
-* {
-  box-sizing: border-box;
+
+body {
   overflow-x: hidden;
-  overflow-y: none;
-} */
+  overflow-x: clip !important;
+}
