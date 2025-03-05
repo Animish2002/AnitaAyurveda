@@ -198,26 +198,27 @@ ${formData.notes || "No additional notes"}
                   {/* Appointment Details */}
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="treatment">Treatment Type</Label>
-                      <Select>
-                        <SelectTrigger className="border-stone-200">
-                          <SelectValue placeholder="Select treatment" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="consultation">
-                            Initial Consultation
-                          </SelectItem>
-                          <SelectItem value="panchakarma">
-                            Panchakarma
-                          </SelectItem>
-                          <SelectItem value="massage">
-                            Ayurvedic Massage
-                          </SelectItem>
-                          <SelectItem value="followup">
-                            Follow-up Consultation
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <label
+                        htmlFor="treatment"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Treatment Type
+                      </label>
+                      <select
+                        id="treatment"
+                        value={formData.treatment}
+                        onChange={handleInputChange}
+                        className="mt-0 block w-full rounded-md border border-stone-300 bg-white px-3 py-2 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        required
+                      >
+                        <option value="">Select treatment</option>
+                        <option value="consultation">
+                          Initial Consultation
+                        </option>
+                        <option value="panchakarma">Panchakarma</option>
+                        <option value="massage">Ayurvedic Massage</option>
+                        <option value="followup">Follow-up Consultation</option>
+                      </select>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
@@ -233,20 +234,26 @@ ${formData.notes || "No additional notes"}
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="time">Preferred Time</Label>
-                        <Select>
-                          <SelectTrigger className="border-stone-200">
-                            <SelectValue placeholder="Select time" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="9">9:00 AM</SelectItem>
-                            <SelectItem value="10">10:00 AM</SelectItem>
-                            <SelectItem value="11">11:00 AM</SelectItem>
-                            <SelectItem value="14">2:00 PM</SelectItem>
-                            <SelectItem value="15">3:00 PM</SelectItem>
-                            <SelectItem value="16">4:00 PM</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <label
+                          htmlFor="time"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          Preferred Time
+                        </label>
+                        <select
+                          id="time"
+                          value={formData.time}
+                          onChange={handleInputChange}
+                          className="mt-0 block w-full rounded-md border border-stone-300 bg-white px-3 py-1.5 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        >
+                          <option value="">Select time</option>
+                          <option value="9">9:00 AM</option>
+                          <option value="10">10:00 AM</option>
+                          <option value="11">11:00 AM</option>
+                          <option value="14">2:00 PM</option>
+                          <option value="15">3:00 PM</option>
+                          <option value="16">4:00 PM</option>
+                        </select>
                       </div>
                     </div>
 
@@ -328,7 +335,13 @@ ${formData.notes || "No additional notes"}
           </div>
         </div>
       </div>
-      <Toaster richColors />
+      <Toaster
+        position="top-right" // Choose your preferred position
+        richColors
+        expand={true} // Optional: makes toasts more prominent
+        pauseWhenHovered={true} // Optional: pause timer when hovering
+        
+      />
     </section>
   );
 };
