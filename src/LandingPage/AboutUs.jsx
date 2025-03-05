@@ -107,7 +107,22 @@ const AboutSection = () => {
                     <div className="h-96 flex items-center justify-center">
                       {item.type === "image" ? (
                         <img
-                          src={item.src}
+                          srcSet={`
+                          ${item.src.replace(
+                            "/upload/",
+                            "/upload/w_400/"
+                          )} 400w,
+                          ${item.src.replace(
+                            "/upload/",
+                            "/upload/w_800/"
+                          )} 800w,
+                          ${item.src.replace(
+                            "/upload/",
+                            "/upload/w_1200/"
+                          )} 1200w
+                        `}
+                          sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px"
+                          src={item.src.replace("/upload/", "/upload/w_800/")}
                           alt={item.alt}
                           className="max-h-full max-w-full object-contain"
                         />
@@ -178,7 +193,6 @@ const AboutSection = () => {
                 </p>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

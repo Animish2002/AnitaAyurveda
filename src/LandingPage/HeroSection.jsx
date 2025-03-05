@@ -45,12 +45,12 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-4xl font-extrabold text-stone-900 leading-tight">
               Holistic Healing through{" "}
               <span className="text-emerald-600">Ayurvedic Wisdom</span>
             </h1>
 
-            <p className="text-xl text-stone-600 leading-relaxed">
+            <p className="md:text-xl text-base text-stone-600 leading-relaxed">
               Transform your health journey with personalized Ayurvedic
               treatments that harmonize body, mind, and spirit. Our expert
               practitioners combine time-honored traditional techniques with
