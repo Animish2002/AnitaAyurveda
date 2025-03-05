@@ -136,7 +136,7 @@ const Navbar = () => {
                 <Button
                   variant="ghost"
                   className="justify-start"
-                  onClick={() => scrollToSection("#contact")}
+                  onClick={() => scrollToSection("#appointment")}
                 >
                   Contact
                 </Button>
