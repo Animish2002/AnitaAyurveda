@@ -38,22 +38,32 @@ const Home = () => {
           onReviewsClick={() => scrollToSection(reviewsRef)}
         />
 
-        <HeroSection />
+        <React.Suspense fallback={<div className="h-screen" />}>
+          <HeroSection />
+        </React.Suspense>
 
         <div ref={aboutRef}>
-          <AboutSection />
+          <React.Suspense fallback={<div className="h-screen" />}>
+            <AboutSection />
+          </React.Suspense>
         </div>
 
         <div ref={treatmentsRef}>
-          <TreatmentsSection />
+          <React.Suspense fallback={<div className="h-screen" />}>
+            <TreatmentsSection />
+          </React.Suspense>
         </div>
 
         <div ref={appointmentRef}>
-          <AppointmentPage />
+          <React.Suspense fallback={<div className="h-screen" />}>
+            <AppointmentPage />
+          </React.Suspense>
         </div>
 
         <div ref={reviewsRef}>
-          <ReviewsSection />
+          <React.Suspense fallback={<div className="h-screen" />}>
+            <ReviewsSection />
+          </React.Suspense>
         </div>
 
         <Footer />
