@@ -76,7 +76,7 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center">
                 <CheckCircle className="text-emerald-500" />
-                <span className="ml-2 text-stone-600">200+ Happy Patients</span>
+                <span className="ml-2 text-stone-600">300+ Happy Patients</span>
               </div>
             </div>
           </div>

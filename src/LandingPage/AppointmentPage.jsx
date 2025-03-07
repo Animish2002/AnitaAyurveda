@@ -318,7 +318,7 @@ ${formData.notes || "No additional notes"}
                           Working Hours
                         </p>
                         <p className="text-stone-600">
-                          Monday - Saturday: 9:00 AM - 7:00 PM
+                          Monday - Saturday: 10:00 AM - 8:30 PM
                         </p>
                       </div>
                     </div>
