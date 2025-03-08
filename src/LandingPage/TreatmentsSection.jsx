@@ -653,7 +653,7 @@ const TreatmentsSection = () => {
                   5+
                 </div>
                 <div className="text-sm text-stone-600">
-                  Expert practitioners
+                  Years of Experience
                 </div>
               </div>
             </div>
