@@ -159,7 +159,7 @@ const Footer = () => {
               href="https://www.animishchopade.in/"
               className="text-blue-400 transition-colors hover:text-emerald-400"
             >
-              Animish Chopade
+              Animish
             </a>
           </p>
         </div>
