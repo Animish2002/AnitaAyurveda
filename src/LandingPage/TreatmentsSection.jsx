@@ -576,7 +576,10 @@ const TreatmentsSection = () => {
                               </p>
                             </div>
 
-                            <Button className="mt-6 bg-emerald-600 text-white hover:bg-emerald-700">
+                            <Button
+                              onClick={() => scrollToSection("#appointment")}
+                              className="mt-6 bg-emerald-600 text-white hover:bg-emerald-700"
+                            >
                               Book This Treatment
                               <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
