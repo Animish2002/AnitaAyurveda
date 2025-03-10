@@ -180,7 +180,7 @@ const HeroSection = () => {
                     </h3>
                     <p className="text-stone-600">
                       Practicing at Anita Ayurveda Clinic & Panchakarma Center,
-                      Bakewadi. Dedicated to providing holistic consultations
+                      Balewadi. Dedicated to providing holistic consultations
                       that restore balance to mind, body, and spirit.
                     </p>
                   </div>
